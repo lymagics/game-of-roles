@@ -1,0 +1,18 @@
+- model: roles.role
+  pk: 1
+  fields:
+    name: Premium
+    description: Premium status
+    price_per_month: 699
+- model: roles.role
+  pk: 2
+  fields:
+    name: Extra
+    description: Extra status
+    price_per_month: 999
+- model: roles.role
+  pk: 3
+  fields:
+    name: Luxe
+    description: Luxe status
+    price_per_month: 1399

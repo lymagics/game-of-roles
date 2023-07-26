@@ -96,6 +96,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+FIXTURE_DIRS = [BASE_DIR / 'fixtures']
+
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
