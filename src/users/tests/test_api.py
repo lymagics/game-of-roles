@@ -23,7 +23,7 @@ class TestUserAPI(APITestCase):
 
     def test_not_retrieving_authenticated_user(self):
         response = self.client.get(self.url_me)
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
     def test_updating_authenticated_user(self):
         new_data = {
@@ -43,4 +43,4 @@ class TestUserAPI(APITestCase):
             'email': self.faker.email(),
         }
         response = self.client.put(self.url_me, new_data)
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)

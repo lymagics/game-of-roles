@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 from environs import Env
@@ -114,7 +115,9 @@ CSRF_TRUSTED_ORIGINS = (
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    ),
 }
 
 SPECTACULAR_SETTINGS = {
@@ -128,9 +131,14 @@ AUTH_USER_MODEL = 'users.User'
 
 REST_AUTH = {
     'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'access',
     'USER_DETAILS_SERIALIZER': 'users.api.serializers.UserSerializer',
 }
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=24),
+}
