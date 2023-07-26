@@ -124,6 +124,7 @@ AUTH_USER_MODEL = 'users.User'
 
 REST_AUTH = {
     'USE_JWT': True,
+    'USER_DETAILS_SERIALIZER': 'users.api.serializers.UserSerializer',
 }
 
 ACCOUNT_EMAIL_REQUIRED = True
