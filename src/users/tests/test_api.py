@@ -10,7 +10,7 @@ class TestUserAPI(APITestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = UserFactory()
-        cls.url_me = reverse('api:rest_user_details')
+        cls.url_me = reverse('api:auth:rest_user_details')
         cls.faker = Faker()
 
     def test_retrieving_authenticated_user(self):
