@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from mocks.models import Mock
+
+admin.site.register(Mock)
