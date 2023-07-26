@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     'users.apps.UsersConfig',
     'roles.apps.RolesConfig',
+    'mocks.apps.MocksConfig',
 ]
 
 SITE_ID = 1
