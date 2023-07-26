@@ -21,8 +21,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'rest_framework',
     'corsheaders',
+    'drf_spectacular',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -96,3 +97,14 @@ CSRF_TRUSTED_ORIGINS = (
     'http://localhost:8000',
     'http://localhost:3000',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Game of roles API',
+    'DESCRIPTION': 'API for purchasing subscriptions.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
