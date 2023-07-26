@@ -1,0 +1,24 @@
+- model: mocks.mock
+  pk: 1
+  fields:
+    type: phone_number
+    payload:
+      - 6048764759382
+      - 2194892411578
+      - 5659387784080
+- model: mocks.mock
+  pk: 2
+  fields:
+    type: color
+    payload:
+      - aqua
+      - teal
+      - white
+- model: mocks.mock
+  pk: 3
+  fields:
+    type: passport_number
+    payload:
+      - 604876475
+      - Q24219489
+      - J11578156
