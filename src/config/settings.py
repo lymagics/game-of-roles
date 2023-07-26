@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'users.apps.UsersConfig',
+    'roles.apps.RolesConfig',
 ]
 
 SITE_ID = 1
