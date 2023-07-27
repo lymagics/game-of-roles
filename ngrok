@@ -1,0 +1,1 @@
+docker run -it -e NGROK_AUTHTOKEN={TOKEN_HERE} ngrok/ngrok:latest http host.docker.internal:8000
