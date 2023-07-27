@@ -8,6 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from core.permissions import IsRegular
 from roles.api.serializers import CheckoutSerializer, RoleSerializer
 from roles.models import Role
 
@@ -26,7 +27,8 @@ class RoleViewSet(mixins.ListModelMixin,
         responses=CheckoutSerializer,
     )
     @action(detail=False, 
-            methods=('post',),)
+            methods=('post',),
+            permission_classes=(IsRegular,))
     def purchase(self, request: Request):
         serializer = CheckoutSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
