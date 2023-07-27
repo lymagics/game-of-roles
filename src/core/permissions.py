@@ -16,21 +16,21 @@ class BaseIsRole(permissions.BasePermission):
         return request.user.subscriptions.filter(role__name=self.role).exists()
 
 
-class IsPremium(permissions.BasePermission):
+class IsPremium(BaseIsRole):
     """
     Allow only permium player to access.
     """
     role = 'Premium'
 
 
-class IsExtra(permissions.BasePermission):
+class IsExtra(BaseIsRole):
     """
     Allow only extra player to access.
     """
     role = 'Extra'
 
 
-class IsLuxe(permissions.BasePermission):
+class IsLuxe(BaseIsRole):
     """
     Allow only luxe player to access.
     """
