@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from roles.models import Role
+from roles.models import Role, IntervalChoices
 
 
 class RoleSerializer(serializers.ModelSerializer):
@@ -10,3 +10,12 @@ class RoleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Role
         fields = ('name', 'description', 'price_per_month',)
+
+
+class CheckoutSerializer(serializers.Serializer):
+    """
+    DRF serializer to represent chekout.
+    """
+    name = serializers.CharField()
+    interval = serializers.ChoiceField(choices=IntervalChoices, write_only=True)
+    url = serializers.URLField(read_only=True)
