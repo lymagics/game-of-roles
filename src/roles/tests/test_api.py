@@ -4,6 +4,7 @@ from rest_framework.test import APITestCase
 
 from roles.models import Role
 from users.tests.factories import UserFactory
+from mocks.tests.factories import SubscriptionFactory
 
 
 class TestRoleAPI(APITestCase):
@@ -39,3 +40,13 @@ class TestRoleAPI(APITestCase):
         })
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.json()['interval'], ['"4" is not a valid choice.'])
+
+    def test_not_generating_stripe_checkout_url_if_already_has_subscription(self):
+        role = Role.objects.first()
+        SubscriptionFactory(user=self.user, role=role)
+        self.client.force_authenticate(user=self.user)
+        response = self.client.post(self.url_purchase, {
+            'name': 'Premium',
+            'interval': 3,
+        })
+        self.assertEqual(response.status_code, 403)
