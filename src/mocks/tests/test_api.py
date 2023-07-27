@@ -13,9 +13,9 @@ class TestMockAPI(APITestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user = UserFactory()
-        cls.url_premium = reverse('api:mocks:phone')
-        cls.url_extra = reverse('api:mocks:color')
-        cls.url_luxe = reverse('api:mocks:passport')
+        cls.url_premium = reverse('api:mocks:mocks-phone')
+        cls.url_extra = reverse('api:mocks:mocks-color')
+        cls.url_luxe = reverse('api:mocks:mocks-passport')
 
     def test_phone_data_can_be_accessed_only_by_premium(self):
         role = Role.objects.get(name='Premium')
