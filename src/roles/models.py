@@ -70,6 +70,6 @@ class Subscription(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE,
                              related_name='subscriptions')
-    
+
     def __str__(self) -> str:
         return f'Subscription of {self.user} for {self.role}'

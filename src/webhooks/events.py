@@ -28,7 +28,7 @@ def stripe_webhook(event, **kwargs):
     role = get_object_or_404(Role, name=name)
 
     Subscription.objects.create(
-        ref=subscription, interval=interval, 
+        ref=subscription, interval=interval,
         user=user, role=role,
     )
     return HttpResponse('', status=200)

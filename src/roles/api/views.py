@@ -21,12 +21,12 @@ class RoleViewSet(mixins.ListModelMixin,
 
     def get_queryset(self):
         return Role.objects.all()
-    
+
     @extend_schema(
         request=CheckoutSerializer,
         responses=CheckoutSerializer,
     )
-    @action(detail=False, 
+    @action(detail=False,
             methods=('post',),
             permission_classes=(IsRegular,))
     def purchase(self, request: Request):

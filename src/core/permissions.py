@@ -8,7 +8,7 @@ class BaseIsRole(permissions.BasePermission):
     @property
     def role(self):
         raise NotImplementedError
-    
+
     def has_permission(self, request, view):
         """
         Check user role.

@@ -16,7 +16,7 @@ class MockViewSet(viewsets.GenericViewSet):
     authentication_classes = (JWTCookieAuthentication,)
     queryset = Mock.objects.all()
 
-    @action(detail=False, 
+    @action(detail=False,
             methods=('get',),
             permission_classes=(IsPremium,))
     def phone(self, request: Request):
@@ -24,7 +24,7 @@ class MockViewSet(viewsets.GenericViewSet):
         serializer = self.serializer_class(obj)
         return Response(serializer.data, status=200)
 
-    @action(detail=False, 
+    @action(detail=False,
             methods=('get',),
             permission_classes=(IsExtra,))
     def color(self, request: Request):
@@ -32,7 +32,7 @@ class MockViewSet(viewsets.GenericViewSet):
         serializer = self.serializer_class(obj)
         return Response(serializer.data, status=200)
 
-    @action(detail=False, 
+    @action(detail=False,
             methods=('get',),
             permission_classes=(IsLuxe,))
     def passport(self, request: Request):

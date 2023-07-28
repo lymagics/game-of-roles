@@ -7,4 +7,4 @@ urlpatterns = [
     path('stripe/', include('djstripe.urls', namespace='djstripe')),
 ]
 
-from webhooks import events
+from webhooks import events # noqa F401 E402
