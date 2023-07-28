@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -7,4 +7,4 @@ urlpatterns = [
     path('stripe/', include('djstripe.urls', namespace='djstripe')),
 ]
 
-from webhooks import events # noqa F401 E402
+from webhooks import events  # noqa F401 E402

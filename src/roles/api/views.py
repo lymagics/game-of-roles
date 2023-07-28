@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 
 from dj_rest_auth.jwt_auth import JWTCookieAuthentication
 from drf_spectacular.utils import extend_schema
-from rest_framework import viewsets, mixins
+from rest_framework import mixins, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request

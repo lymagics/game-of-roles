@@ -2,9 +2,9 @@ from django.urls import reverse
 
 from rest_framework.test import APITestCase
 
+from mocks.tests.factories import SubscriptionFactory
 from roles.models import Role
 from users.tests.factories import UserFactory
-from mocks.tests.factories import SubscriptionFactory
 
 
 class TestRoleAPI(APITestCase):

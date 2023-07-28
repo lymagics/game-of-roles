@@ -1,7 +1,7 @@
-import stripe
-
 from django.conf import settings
 from django.db import models
+
+import stripe
 
 if settings.DEBUG:
     stripe.api_key = settings.STRIPE_TEST_SECRET_KEY

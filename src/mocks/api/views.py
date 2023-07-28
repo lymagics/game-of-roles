@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-from core.permissions import IsPremium, IsExtra, IsLuxe
+from core.permissions import IsExtra, IsLuxe, IsPremium
 from mocks.api.serializers import MockSerializer
 from mocks.models import Mock
 

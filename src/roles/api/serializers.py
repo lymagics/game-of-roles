@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from roles.models import Role, IntervalChoices
+from roles.models import IntervalChoices, Role
 
 
 class RoleSerializer(serializers.ModelSerializer):
