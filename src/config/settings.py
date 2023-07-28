@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'djstripe',
     'drf_spectacular',
     'rest_framework',
     'rest_framework.authtoken',
@@ -150,4 +151,12 @@ SIMPLE_JWT = {
 PAYMENT_SUCCESS_URL = env.str('PAYMENT_SUCCESS_URL')
 PAYMENT_CANCEL_URL = env.str('PAYMENT_CANCEL_URL')
 CURRENCY = env.str('CURRENCY')
-STRIPE_API_KEY = env.str('STRIPE_API_KEY')
+
+if DEBUG:
+    STRIPE_TEST_SECRET_KEY = env.str('STRIPE_TEST_SECRET_KEY')
+else:
+    STRIPE_LIVE_SECRET_KEY = env,str('STRIPE_LIVE_SECRET_KEY')
+STRIPE_LIVE_MODE = env.bool('STRIPE_LIVE_MODE', False)
+DJSTRIPE_WEBHOOK_SECRET = env.str('DJSTRIPE_WEBHOOK_SECRET')
+DJSTRIPE_USE_NATIVE_JSONFIELD = True
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = 'id'

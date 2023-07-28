@@ -3,7 +3,10 @@ import stripe
 from django.conf import settings
 from django.db import models
 
-stripe.api_key = settings.STRIPE_API_KEY
+if settings.DEBUG:
+    stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+else:
+    stripe.api_key = settings.STRIPE_LIVE_SECRET_KEY
 
 
 class IntervalChoices(models.IntegerChoices):
@@ -31,6 +34,7 @@ class Role(models.Model):
             metadata={
                 'user_id': user.pk,
                 'role': self.name,
+                'interval': interval,
             },
             line_items=[{
                 'quantity': 1,
